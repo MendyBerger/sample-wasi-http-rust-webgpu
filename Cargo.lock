@@ -781,7 +781,7 @@ name = "sample-wasi-http-rust"
 version = "0.0.0"
 dependencies = [
  "wgpu",
- "wit-bindgen-rt 0.41.0",
+ "wit-bindgen-rt",
  "wstd",
 ]
 
@@ -1304,7 +1304,7 @@ version = "0.42.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fa5b79cd8cb4b27a9be3619090c03cbb87fe7b1c6de254b4c9b4477188828af8"
 dependencies = [
- "wit-bindgen-rt 0.42.1",
+ "wit-bindgen-rt",
  "wit-bindgen-rust-macro",
 ]
 
@@ -1326,15 +1326,6 @@ dependencies = [
  "anyhow",
  "heck",
  "wit-parser",
-]
-
-[[package]]
-name = "wit-bindgen-rt"
-version = "0.41.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c4db52a11d4dfb0a59f194c064055794ee6564eb1ced88c25da2cf76e50c5621"
-dependencies = [
- "bitflags 2.9.0",
 ]
 
 [[package]]
