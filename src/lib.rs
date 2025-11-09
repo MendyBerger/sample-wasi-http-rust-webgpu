@@ -19,13 +19,13 @@ async fn main(req: Request<IncomingBody>, res: Responder) -> Finished {
 async fn home(_req: Request<IncomingBody>, res: Responder) -> Finished {
     let instance = wgpu::Instance::new(Default::default());
     let adapter = instance.request_adapter(&Default::default()).await.unwrap();
-    let (device, queue) = adapter.request_device(&Default::default(), None).await.unwrap();
-
-    println!("device: {:#?}", device);
-    println!("queue: {:#?}", queue);
+    let result = adapter.request_device(&wgpu::DeviceDescriptor {
+        required_features: wgpu::Features::SHADER_F16,
+        ..Default::default()
+    }, None).await;
 
     // To send a single string as the response body, use `res::respond`.
-    res.respond(Response::new("Hello, wasi:http/proxy world!\n".into_body()))
+    res.respond(Response::new(format!("result: {result:#?}\n").into_body()))
         .await
 }
 
